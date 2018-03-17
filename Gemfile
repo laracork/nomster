@@ -64,6 +64,7 @@ gem 'will_paginate', '>= 3.1'
 gem 'will_paginate-bootstrap'
 gem 'geocoder'
 gem 'figaro'
+gem 'carrierwave', '~> 1.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
