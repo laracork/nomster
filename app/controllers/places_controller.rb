@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def index
     @places = Place.order("name").page(params[:page]).per_page(5)
   end
@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
   end
 
   def create
+    binding.pry
     @place = current_user.places.create(place_params)
     if @place.valid?
       redirect_to root_path
@@ -18,7 +19,7 @@ class PlacesController < ApplicationController
     end
   end
 
-  def show 
+  def show
    @place = Place.find(params[:id])
    @comment = Comment.new
    @photo = Photo.new
@@ -29,14 +30,14 @@ class PlacesController < ApplicationController
 
     if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
-    end 
+    end
   end
 
   def update
       @place = Place.find(params[:id])
       if @place.user != current_user
         return render plain: 'Not Allowed', status: :forbidden
-      end 
+      end
 
       @place.update_attributes(place_params)
       if @place.valid?
@@ -50,7 +51,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
-    end 
+    end
 
     @place.destroy
     redirect_to root_path
