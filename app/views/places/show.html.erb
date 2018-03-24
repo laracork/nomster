@@ -67,7 +67,7 @@
   </div>
 </div>
 
-<div class="col-10 offset-1">
+<div class="col-10">
 <h1 class="float-left">Photos</h1>
 <br /><br /><br />
 <!-- Button trigger modal -->
@@ -88,6 +88,9 @@
   </div>
 <% end %>
 </div>
+</div>
+
+<br />
 
 <!-- Modal for Comments-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -124,14 +127,14 @@
 
 <div class="clear"></div>
 
-<div class="row">
-<% @place.comments.each do |comment| %>
-  <div class="col-12 col-sm-6">
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
-      <%= comment.message %>
+  <div class="row">
+    <% @place.comments.each do |comment| %>
+      <div class="col-12 col-sm-6">
+        <blockquote>
+          <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %></b> -
+        <% end %>
+        <%= comment.message %>
       <small><%= comment.user.email %></small>
     </blockquote>
   </div>
