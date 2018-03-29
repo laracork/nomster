@@ -91,9 +91,9 @@ img {
 }
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  height: 400px;
+  height: 550px;
   width: 100%;
-  object-fit: contain;
+
 }
 
 .carousel-caption {
@@ -103,6 +103,15 @@ img {
   width: 100%;
   position: absolute;
   left: 0;
+}
+
+.carousel-indicators li {
+    border-radius: 10px;
+    margin: 1px 3px;
+    height: 10px;
+    max-width: 10px;
+    border: 1px solid #FFF;
+    background-color: transparent;
 }
 
 
